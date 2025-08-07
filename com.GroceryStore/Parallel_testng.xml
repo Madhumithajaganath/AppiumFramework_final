@@ -4,7 +4,6 @@
   <test name="Test1">
 	  <parameter name="udid" value="R9ZR80GM0RP"></parameter>
 	  <parameter name="deviceName" value="Galaxy A22 5g"></parameter>
-      <parameter name="port" value="4723"></parameter>
     <classes>
       <class name="com.testng.example.Parallel_Test"/>
     </classes>
@@ -12,7 +11,6 @@
   <test name="Test2">
 	  <parameter name="udid" value="RZ8T31JR73N"></parameter>
 	  <parameter name="deviceName" value="Madhumitha jaganath"></parameter>
-      <parameter name="port" value="4724"></parameter>
     <classes>
       <class name="com.testng.example.Parallel_Test"/>
     </classes>

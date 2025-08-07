@@ -63,13 +63,13 @@ public class BaseClass {
 	public AndroidUtility andUtil;
 	public GestureUtility gUtil;
 	public FileUtility fUtil = new FileUtility(); 
-	@Parameters({"deviceName, UDID, port"})
+	@Parameters({"deviceName, UDID"})
 	@BeforeSuite(groups = {"smoke","regression"})
-	public void startServer(int port) {
+	public void startServer() {
 		
 		File f = new File("C:\\Users\\User\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js");
 		service = new AppiumServiceBuilder().
-		withAppiumJS(f).withIPAddress("127.0.0.1").usingPort(port).
+		withAppiumJS(f).withIPAddress("127.0.0.1").usingAnyFreePort().
 		withTimeout(Duration.ofSeconds(300)).build();
 		
 		service.start();
@@ -88,8 +88,9 @@ public class BaseClass {
 		dc.setCapability("appPackage", fUtil.dataFromPropertiesFile("appPackage"));
 		dc.setCapability("appActivity", fUtil.dataFromPropertiesFile("appActivity"));
 		
-		driver = new AndroidDriver(new URL("http://localhost:"+port+""),dc);
+		driver = new AndroidDriver(new URL("http://localhost:4723"),dc);
 		sdriver=driver;
+		UtilityClassObject.setDriver(driver);
 //		UiAutomator2Options op = new UiAutomator2Options();
 	}
 	
