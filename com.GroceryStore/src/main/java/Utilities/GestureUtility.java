@@ -77,9 +77,9 @@ public class GestureUtility {
 		return elementText;
 	}
 
-	public WebElement scrollByxPath(String xpath) {
-		WebElement elementxPath = driver.findElement(AppiumBy.androidUIAutomator
-		("new UiScrollable(new UiSelector()).scrollIntoView(xpath(\"" + xpath + "\"));"));
-		return elementxPath;
+	public WebElement scrollById(String id) {
+		WebElement elementId = driver.findElements(AppiumBy.androidUIAutomator(
+		"new UiScrollable (new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().resourceIdMatches(\""+id+"\"));"));
+		return elementId;
 	}
 }
